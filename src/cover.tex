@@ -1,0 +1,84 @@
+\newcommand{\BXexam}[5]{#1 \textsc{#2} \dotfill & #3, #4 \dotfill & #5 \\}
+
+% Center the cover page horizontally
+\newgeometry{centering}
+
+\pagestyle{empty}
+
+\begin{titlepage}
+    \begin{center}
+
+        \vspace*{-96pt}
+
+        \begin{minipage}[c]{0.3\textwidth}
+            \centering
+            % https://www.u-bordeaux.fr/Universite/L-universite-de-Bordeaux/Identite-visuelle/Le-logotype
+            \includegraphics[width=\textwidth]{images/cover/logo-ub.jpg}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[c]{0.2\textwidth}
+            \centering
+            % https://www.inria.fr/fr/charte-dutilisation-de-lidentite-visuelle-dinria
+            \includegraphics[width=\textwidth]{images/cover/logo-inria.png}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[c]{0.2\textwidth}
+            \centering
+            \includegraphics[width=0.7\textwidth]{images/cover/logo-bdxinp.jpg}
+        \end{minipage}
+        \vfill
+        \vfill
+        \vfill
+        \vfill
+
+        \huge  {\bf THÈSE}
+        \vfill
+        \large PRÉSENTÉE À
+        \vfill
+        \Large  {\bf L'UNIVERSITÉ DE BORDEAUX}
+        \vfill
+        \Large ÉCOLE DOCTORALE\\DE MATHÉMATIQUES ET D'INFORMATIQUE
+        \vfill
+        \Large par {\bf Baptiste Pesquet}
+        \vfill
+        \large POUR OBTENIR LE GRADE DE
+        \vfill
+        \Large {\bf DOCTEUR}
+        \vfill
+        \Large {\bf EN INFORMATIQUE}
+        \vfill
+        \rule{4em}{1pt}
+        \vfill
+        \Large {\bf \thesisTitleFrench}
+        \vfill
+        \rule{4em}{1pt}
+    \end{center}
+
+    \vfill
+
+    %\hspace{-1.87cm}
+
+    {\bf Soutenue le } \thesisDate
+
+    \vfill
+
+    %\hspace{-2.5cm}
+    {\bf Devant la commission d'examen composée de :}
+
+    \vfill
+
+    %\begin{tabular}{@{\hspace{-2.1cm}}lll}
+    \makebox[\linewidth]{
+        \begin{tabular}{lll}
+            \BXexam{Mme~Aude}{Alpha}{DR}{Université}{Présidente du jury}
+            \BXexam{M.~Bernard}{Bêta}{DR}{Université}{Rapporteur}
+            \BXexam{M.~Georges}{Gamma}{DR}{Université}{Examinateur}
+            \BXexam{Mme~Dominique}{Delta}{DR}{Université}{Examinatrice}
+            \BXexam{M.~Frédéric}{Alexandre}{DR}{Université}{Directeur}
+        \end{tabular}
+    }
+    %\vfill
+\end{titlepage}
+
+% Restore default geometry for the remainder of the document
+\restoregeometry
