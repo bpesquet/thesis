@@ -7,6 +7,16 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 
+% Glossary
+\usepackage[automake, acronym]{glossaries}
+\makeglossaries
+\loadglsentries{src/glossary.tex}
+\loadglsentries{src/acronyms.tex}
+
+% Bibliography
+\usepackage{biblatex}
+\addbibresource{src/bibliography.bib}
+
 \newcommand{\thesisTitleFrench}{Titre de la thèse}
 \newcommand{\thesisDate}{jj mm aaaa}
 
@@ -15,12 +25,14 @@
 \frontmatter
 \include{src/cover}
 \include{src/abstract}
+\printglossaries
 \tableofcontents
 
 \mainmatter
 \include{src/introduction}
-\include{src/chapter1}
+\include{src/review}
 
 \backmatter
+\printbibliography
 
 \end{document}
