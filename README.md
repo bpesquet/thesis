@@ -1,6 +1,6 @@
 # My thesis manuscript
 
-> 🚧 Work in progress until Autumn 2026 🚧
+> 🚧 Work in progress until Autumn 2026
 
 ## Development notes
 

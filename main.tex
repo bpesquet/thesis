@@ -4,7 +4,11 @@
 % \author{Baptiste Pesquet}
 \date{TBD}
 
+% Images
 \usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+% Page layout
 \usepackage{geometry}
 
 % Glossary
@@ -14,8 +18,14 @@
 \loadglsentries{src/acronyms.tex}
 
 % Bibliography
-\usepackage{biblatex}
+\usepackage[sorting=none]{biblatex}
 \addbibresource{src/bibliography.bib}
+
+% Todo notes
+\usepackage[backgroundcolor=yellow]{todonotes}
+
+% Mahematical symbols
+\usepackage{amssymb}
 
 \newcommand{\thesisTitleFrench}{Titre de la thèse}
 \newcommand{\thesisDate}{jj mm aaaa}
@@ -25,8 +35,10 @@
 \frontmatter
 \include{src/cover}
 \include{src/abstract}
-\printglossaries
+\setcounter{tocdepth}{4}
 \tableofcontents
+\printglossaries
+\listoftodos
 
 \mainmatter
 \include{src/introduction}
