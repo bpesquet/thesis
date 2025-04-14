@@ -21,6 +21,7 @@
     "%DIR%/",
     "%TMPFILE%",
     "-y=defaultIndent: '%INDENT%', ",
-    "-l=%DIR%/indentconfig.yaml"
+    "-l=%DIR%/indentconfig.yaml",
+    "-g=%DIR%/gen/"
   ]
 }
