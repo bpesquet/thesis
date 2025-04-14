@@ -1,0 +1,26 @@
+{
+  "latex-workshop.latex.outDir": "%DIR%/gen",
+  "latex-workshop.linting.chktex.exec.path": "chktex",
+  "latex-workshop.linting.chktex.exec.args": [
+    "-wall",
+    "-n22",
+    "-n30",
+    "-e16",
+    "-q"
+  ],
+  "latex-workshop.message.latexlog.exclude": [
+    "Underfull",
+    "Overfull",
+    "Rerun to get cross-references right.",
+    "Marginpar on page"
+  ],
+  "latex-workshop.linting.run": "onSave",
+  "latex-workshop.formatting.latex": "latexindent",
+  "latex-workshop.formatting.latexindent.args": [
+    "-c",
+    "%DIR%/",
+    "%TMPFILE%",
+    "-y=defaultIndent: '%INDENT%', ",
+    "-l=%DIR%/indentconfig.yaml"
+  ]
+}
