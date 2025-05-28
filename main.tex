@@ -12,13 +12,13 @@
 \usepackage{geometry}
 
 % Glossary
-\usepackage[automake, acronym]{glossaries}
+\usepackage[automake, acronym, toc]{glossaries}
 \makeglossaries
 \loadglsentries{src/glossary}
 \loadglsentries{src/acronyms}
 
 % Bibliography
-\usepackage[sorting=none]{biblatex}
+\usepackage[sorting=nyt]{biblatex}
 \addbibresource{src/bibliography.bib}
 
 % Todo notes
@@ -32,25 +32,30 @@
 
 \begin{document}
 
+% ----- Frontmatter -----
 \frontmatter
 \include{src/cover}
 \include{src/abstract}
 \setcounter{tocdepth}{2}
 \tableofcontents
-\printglossaries
 \listoffigures
 \listoftables
 \listoftodos
 
+% ----- Mainmatter -----
 \mainmatter
+\part{Introduction}
 \include{src/introduction}
 
 % Literature review
-\include{src/review}
+\part{From decision to metacognition}
 \include{src/decision-making}
 \include{src/confidence}
 
+% ----- Backmatter -----
 \backmatter
-\printbibliography
+\part{References}
+\printglossaries
+\printbibliography[heading=bibintoc]
 
 \end{document}
