@@ -1,48 +1,60 @@
 \chapter{Decision-making}
 
-\todo{Differentiate between sequential and non-sequential decisions?}
+Everyday, humans and non-humans make hundreds of \glspl{decision}, each of them leading to a \gls{choice} between several possible alternatives. Some of these decisions are trivial: for example, choosing which socks to wear when dressing up. Others imply higher stakes: for example, deciding to embark oneself on a PhD.
 
-\Gls{decision-making} is one of the main aspects of cognition. It is studied from different perspectives by many scientific disciplines, from psychology and neurosocience to artificial intelligence and economy.
+\Gls{decision-making} is one of the main aspects of cognition. Its study spans such varied scientific fields as psychology, neuroscience, economics, statistics and political science. Despite the immense variety of contexts and applications, most decisions share common elements including deliberation and commitment \cite{goldNeuralBasisDecision2007}. In the following chapters, we study the main properties of decisions and review some computational models of decision-making.
 
-\section{The sequential nature of decisions}
+\section{Properties of decisions}
 
-Everyday, humans and non-humans make thousands of \glspl{decision}, each of them leading to a \gls{choice}. Many of those decisions are trivial (for example, choosing which socks to wear when dressing up). Others imply higher stakes (for example, deciding to embark oneself on a PhD).
+A decision is a deliberative process resulting in the commitment to a categorical proposition \cite{goldNeuralBasisDecision2007}. An often used analogy is a jury weighting the available evidence before settling on a verdict.
 
-Several traits of decisions illustrate their sequential nature \cite{forstmannSequentialSamplingModels2016}. All decisions are made under a form of time pressure: one simply cannot take hours to ponder over his or her socks collection, or wait indefinitely before accepting a PhD offering. A decision takes place at the end of a deliberation phase, where available information is acquired and processed. Many decisions are based on information that unfolds over time (for example, tasting wine before recognizing its grape variety). Even if all informative is immediately available (for example, a chessboard observed by a player before choosing his or her next move), it generally has to be treated sequentially, reflecting the frequent inability of the decision maker's cognitive system to process all information simultaneously.
+The following sections describe some characteristical traits of decisions.
 
-A decision can be formalized as the mapping from a stimulus to a response. Time between stimulus and response execution is called \acrfull{rt} \cite{forstmannSequentialSamplingModels2016}, \cite{myersPracticalIntroductionUsing2022}.
+\subsection{Types of experimental scenarios}
+
+Some decisions involve discriminating between sensory stimuli. Some examples of experimental scenarios associated to such perceptual decisions are Stroop tasks (naming the ink color of a colored word with a mismatch between ink color and word), \acrlong{rdm} tasks (assessing the main motion of a dot cloud, Figure \ref{figure:rdm}) or faint sound detection. In that case, the alternatives are typically well-defined and mutually exclusive (e.g., "sound present" vs. "sound absent").
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{random_dot_motion.png}
+    \caption[Examples of Random Dot Motion tasks]{Examples of Random Dot Motion tasks with various movement coherence. \textbf{(a)} Coherence = $0$: dots are moving randomly. \textbf{(b)} Coherence = $0.5$: half of dots are moving to the right. \textbf{(c)} Coherence = $1$: all dots are moving to the right.}
+    \label{figure:rdm}
+\end{figure}
+
+Other decisions require choosing between alternatives based on subjective preferences or expected rewards. Examples of experimental scenarios associated to such value-based decisions are \acrlong{mab} problems, in which a decision-maker iteratively selects one of multiple fixed choices (e.g., arms or actions) in order to maximize a cumulative reward.
+
+\subsection{Time course}
+
+All decisions are made under a form of time pressure \cite{forstmannSequentialSamplingModels2016}: one simply cannot take hours to ponder over his or her socks collection, or wait indefinitely before accepting a PhD offering. A decision takes place at the end of a deliberation phase, in which available information is acquired and processed by the decision-maker. Many decisions are based on information that unfolds over time: for example, tasting wine before recognizing its grape variety. Even when all information is immediately available (for example, a chessboard observed by a player before choosing his or her next move), it generally has to be treated sequentially, reflecting the inability of the decision-maker's cognitive system to process all information simultaneously. Thus, the sequential nature of the decision process is a fundamental property of biological nervous systems \cite{forstmannSequentialSamplingModels2016}.
+
+More formally, a decision can be envisioned as the mapping from a stimulus to a response. Time between stimulus and response execution is called \acrfull{rt} \cite{forstmannSequentialSamplingModels2016}, \cite{myersPracticalIntroductionUsing2022}. It can be decomposed into three parts: the time required to encode the stimulus ($Te$), the time to make a decision ($Td$), and the time to execute the selected response ($Tr$).
 
 $$RT = T_e+T_d+T_r$$
-
-$T_{er}= T_e+T_r$ is called \textbf{non-decision time}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{myersPracticalIntroductionUsing2022_1.png}
-    \caption[Schematc of a decision]{Total \acrshort{rt} on each trial is assumed to reflect the time required to encode the stimulus ($Te$), the time to make a decision ($Td$), and the time to execute the selected motor response ($Tr$). The encoding and motor response time are typically combined into a single parameter, $Ter$, representing non-decision time. Adapted from \cite{myersPracticalIntroductionUsing2022}}
+    \caption[Decomposition of \acrlong{rt} for a decision]{The \acrfull{rt} is assumed to reflect the time required to encode the stimulus ($Te$), the time to make a decision ($Td$), and the time to execute the selected motor response ($Tr$). The encoding and motor response time are typically combined into a single parameter, $Ter$, representing non-decision time. Adapted from \cite{myersPracticalIntroductionUsing2022}}
 \end{figure}
 
-\section{Decision types}
 
-\todo{Decision types}
+\subsection{Outcome assessment}
 
-\section{The speed-accuracy tradeoff}
+A related criterion is the possibility of objectively evaluating the decision outcome. Some decisions have correct or optimal answers, to which the chosen alternatives can be compared in order to compute evaluation metrics like \gls{accuracy}. This is typically the case for perceptual decisions, for which the expected results are controlled by the experimenter. On the other hand, some value-based decisions cannot be objectively evaluated: for example, picking one's favorite color.
 
-For decisions whose outcome can be evaluated (for example, recognizing a song based on its first notes), the balance between response time and accuracy is called the \acrfull{sat}. This ubiquitous aspect of decision-making has long been a phenomenon of interest in behavioral science \cite{heitzSpeedaccuracyTradeoffHistory2014}.
+For decisions whose outcome can be assessed, the balance between \acrshort{rt} and accuracy is called the \acrfull{sat}. This ubiquitous aspect of decision-making has been a phenomenon of interest in behavioral science for a long time \cite{heitzSpeedaccuracyTradeoffHistory2014}. The \acrshort{sat} is at least partially under the decision-maker's control: a faster decisions can ne taken at the expense of an higher error rate, and vice-versa \cite{ratcliffDiffusionDecisionModel2016}. As such, one must not only consider accuracy and speed, but also the interaction between them when studying decisions \cite{myersPracticalIntroductionUsing2022}.
 
-The \acrshort{sat} is at least partially under the decision-maker's control: a faster decisions cab ne taken at the expense of an higher error rate, and vice-versa \cite{ratcliffDiffusionDecisionModel2016}. As such, models of the decision must not only consider accuracy and speed, but the interaction between them \cite{myersPracticalIntroductionUsing2022}.
+\section{Models of the decision process}
 
-\section{Models of decision}
+One approach to understanding decision-making is through computational modeling. The models that have been proposed to describe the decision process range from detailed models of neural circuits to abstract psychological models of behaviour \cite{bogaczOptimalDecisionmakingTheories2007}.
 
 \subsection{Conceptual overview}
 
-One approach to understanding decision-making is through computational models. Historically, most research has been focused on simple, repeatable problems involving decisions with one correct answer.
-
-In this context, a decision can be thought of as a form of statistical inference \cite{goldNeuralBasisDecision2007}. A decision-maker must select among $K \in \mathbb{N^{+}}$ competing hypotheses denoted $h_k$, with $K \ge 2$ and $k \in [1,K]$. For example, a jury may have to rate each defendant on a scale of 1 (\textit{most certainly guilty}) to 5 (\textit{most certainly innocent}).
+A decision can be thought of as a form of statistical inference \cite{goldNeuralBasisDecision2007}. A decision-maker must select among $K \in \mathbb{N^{+}}$ competing hypotheses denoted $h_k$, with $K \ge 2$ and $k \in [1,K]$. For example, a jury may have to rate each defendant on a scale of 1 (\textit{most certainly guilty}) to 5 (\textit{most certainly innocent}).
 
 The probability $P(h_k)$, called \textit{prior}, refers to the probability that $h_k$ is true before obtaining any information about it. In the courtroom analogy, these priors correspond to prejudices that can bias jurors’ judgments.
 
-Deciions are informed by data, called evidence and denoted $e$. Each evidence bears on a particular hypothesis $h_k$. For example, a DNA sample collection can be used as evidence for either supporting or opposing the hypothesis that a person was present at a crime scene. Thus evidence can be interpreted in the context of conditional probabilities such as $P(e|h_k)$, the likelihood function describing the values that $e$ can attain when $h_k$ is true.
+Decisions are informed by data, called evidence and denoted $e$. Each evidence bears on a particular hypothesis $h_k$. For example, a DNA sample collection can be used as evidence for either supporting or opposing the hypothesis that a person was present at a crime scene. Thus evidence can be interpreted in the context of conditional probabilities such as $P(e|h_k)$, the likelihood function describing the values that $e$ can attain when $h_k$ is true.
 
 Priors and evidence \todo{Add value?} are integrated into a conceptual entity called a \acrfull{dv}. In our example, the \acrshort{dv} correspond to the deliberation of the jury. A decision rule determines how the \acrshort{dv} is interpreted to commit to a particular alternative $H_k$ (the choice associated with hypothesis $h_k$). The rule causes the jury to declare, “we have a verdict.” In situations where the \acrshort{dv} can be expressed as a quantity, a simple rule is to place a criterion value on it: the decision is made if (or when) the \acrshort{dv} reaches this threshold.
 
