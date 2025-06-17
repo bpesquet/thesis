@@ -11,6 +11,9 @@
 % Page layout
 \usepackage{geometry}
 
+% Todo notes
+\usepackage[backgroundcolor=yellow]{todonotes}
+
 % Glossary
 \usepackage[automake, acronym, toc]{glossaries}
 \makeglossaries
@@ -20,9 +23,6 @@
 % Bibliography
 \usepackage[sorting=nyt]{biblatex}
 \addbibresource{src/bibliography.bib}
-
-% Todo notes
-\usepackage[backgroundcolor=yellow]{todonotes}
 
 % Mahematical symbols
 \usepackage{amssymb}
@@ -36,7 +36,7 @@
 \frontmatter
 \include{src/cover}
 \include{src/abstract}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 \listoffigures
 \listoftables
