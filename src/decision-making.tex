@@ -53,7 +53,7 @@ Uncertainties can be further classified into two categories \cite{yuUncertaintyN
 
 \section{Models of the decision process}
 
-One approach to understanding decision-making is through computational modeling. Many solutions have been proposed to describe the decision process, ranging from detailed models of neural circuits to abstract psychological models of behaviour \cite{bogaczOptimalDecisionmakingTheories2007}. The following sections review several prominent models of decision-making.
+One approach to understanding decision-making is through computational modeling. Many solutions have been proposed to describe the decision process, ranging from detailed models of neural circuits to abstract psychological models of behaviour \cite{bogaczOptimalDecisionmakingTheories2007}, \cite{teodorescuDisentanglingDecisionModels2013}. The following sections review several prominent models of decision-making.
 
 We start by studying solutions for modeling a single decision. When only one piece of information is available, \acrfull{sdt} is the framework of reference. When multiple pieces are available over time, extensions of \acrshort{sdt} account for the sequential integration of information by the decision-maker. They are called \acrlong{eam}s (\acrshort{eam}s).
 
@@ -73,9 +73,9 @@ All sources of priors, evidence and value are integrated into a conceptual entit
 
 \acrfull{sdt} is a framework for analysing \gls{decision-making} in the presence of uncertainty. Originally developped in the mid-20th century to assess how faithfully a radar operator was able to separate signal (enemy missiles or planes) from noise (random interferences or electronical artefacts), it has applications in many fields: psychology, diagnostics, quality control, etc \cite{green1966signal}.
 
-\acrshort{sdt} measures the ability of a decision-maker to discriminate two possible stimulus types \cite{stanislawCalculationSignalDetection1999} from one piece of information. A simple example of using \acrshort{sdt} in experimental psychology is when testing the ability of a subject to detect a short tone (signal) in a background of white noise. Another example could be a memory recognition test: assess stimuli items as already seen (signal) or new (noise).
+\acrshort{sdt} measures the ability of a decision-maker to discriminate two possible stimulus types, generally called \textit{signal} and \textit{noise}, from one piece of information \cite{stanislawCalculationSignalDetection1999}. A simple example of using \acrshort{sdt} in experimental psychology is when testing the ability of a subject to detect a short tone (signal) in a background of white noise. Another example could be a memory recognition test: assess stimuli items as already seen (signal) or new (noise).
 
-In a binary task, also called a \acrfull{2afc}, signals were either present or absent in the stimuli. The responses given by the subject for each trial can be sorted un one of four categories (Table \ref{table:1}).
+In a binary task, also called a \acrfull{2afc}, signals are either present or absent in the stimuli. The response given by the subject for each trial can be sorted in one of four categories (Table \ref{table:1}).
 
 \begin{table}[h!]
     \centering
@@ -92,7 +92,7 @@ In a binary task, also called a \acrfull{2afc}, signals were either present or a
     \label{table:1}
 \end{table}
 
-The \textit{hit rate} (the probability of responding yes on signal trials), also called \acrfull{tpr}, and the \acrfull{fpr}, the probability of responding yes on noise trials, fully describe results.
+The \textit{hit rate} (the probability of responding yes on signal trials), also called \acrfull{tpr}, and the \acrfull{fpr}, the probability of responding yes on noise trials, are two metrics that describe results.
 
 $$\text{TPR} = \frac{TP}{TP + FN}$$
 
@@ -122,13 +122,15 @@ Another possible measure of sensibility uses the \acrfull{roc} curve, which plot
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.5]{michelConfidenceConsciousnessResearch2023_1.png}
-    \caption[\acrlong{sdt}: \acrshort{roc} curves]{\acrlong{sdt}: \acrshort{roc} curves connecting locations with constant $d'$. The major diagonal is called the “chance line” since the \acrlong{tpr} and \acrlong{fpr} are equal, meaning that the subject is performing at chance level. A conservative criterion decreases both \acrshort{tpr} and \acrshort{fpr}, and a liberal criterion increases them. Using the \acrlong{auroc} is a way to assess \gls{sensitivity} independently of the response criterion. Adapted from \cite{michelConfidenceConsciousnessResearch2023}}
+    \caption[\acrlong{sdt}: \acrshort{roc} curves]{\acrlong{sdt}: \acrshort{roc} curves connecting locations with constant $d'$. The major diagonal is called the “chance line” since the \acrlong{tpr} and \acrlong{fpr} are equal, meaning that the subject is performing at chance level. A conservative criterion decreases both \acrshort{tpr} and \acrshort{fpr}, and a liberal criterion increases them. Using the \acrfull{auroc} is a way to assess \gls{sensitivity} independently of the response criterion. Adapted from \cite{michelConfidenceConsciousnessResearch2023}}
     \label{figure:roc_curves}
 \end{figure}
 
-\subsubsection{\acrlong{sprt}}
+\subsubsection{\acrlong{ssm}s}
 
-For its many qualities, \acrlong{sdt} is silent on decision time. Another class of decision-making models assume that the \acrshort{dv} is constructed from multiple pieces of evidence integrated over time. The process stops when a threshold is reached, which triggers the decision. This approach, called \textit{sequential sampling} or \textit{sequential analysis}, allows studying the relationship between accuracy and the time needed to take a decision. Different approaches to sequential sampling coexist. Models differ according to the number of \acrlong{dv}s, and whether these are independent, inversely correlated or subject to mutual inhibitive relationships (Figure \ref{figure:sequential_sampling} \todo{Ajouter la description des modèles hybrides}).
+For its many qualities, \acrlong{sdt} is silent on decision time. Another class of decision-making models assume that the \acrshort{dv} is constructed from multiple pieces of evidence integrated over time. The process stops when a threshold is reached, which triggers the decision. This approach, called \textit{\gls{sequential sampling}} or \textit{sequential analysis}, allows studying the relationship between accuracy and the time needed to take a decision. Different approaches to sequential sampling coexist. Models differ according to the number of \acrlong{dv}s, and whether these are independent, correlated or subject to non-linear operations like decay or mutual inhibition (Figure \ref{figure:sequential_sampling} \todo{Ajouter la description des modèles hybrides}). Models belonging to this family are called \acrlong{ssm}s or \acrlong{eam}s.
+
+\subsubsection{\acrlong{sprt}}
 
 A well-known form of sequential sampling for binary decisions is the \acrfull{sprt}. It uses a single \acrlong{dv} which is constructed from $n$ multiple, independent pieces of evidence $e_1, e_2, \dots, e_n$ as the logarithm of the likelihood ratio between the two hypotheses $h_1$ and $h_2$.
 
@@ -153,7 +155,7 @@ Let $\alpha$ be the probability that a fair coin will be misidentified and $\bet
 
 \subsubsection{\acrlong{ddm}}
 
-Another prominent model of the decision-making process id the \acrfull{ddm}, also called Drift Diffusion Model \cite{ratcliffDiffusionDecisionModel2008}. It is a sequential sampling model for binary choices in continuous environments. Originally designed in the 1970’s, it is used by a growing body of literature to elucidate the cognitive processes of decision-making. The \acrshort{ddm} assumes that a decision is based on the accumulation of noisy evidence in a \acrlong{dv}, commencing at a starting point and terminating at one of the two decision thresholds that are associated with each of the alternatives (Figure \ref{figure:ddm}).
+Another prominent model of the decision-making process id the \acrfull{ddm}, also called Drift Diffusion Model \cite{ratcliffDiffusionDecisionModel2008}. Originally designed in the 1970’s, it is a sequential sampling model for binary choices in continuous environments. The \acrshort{ddm} assumes that a decision is based on the accumulation of noisy evidence in a \acrlong{dv}, commencing at a starting point and terminating at one of the two decision thresholds that are associated with each of the alternatives (Figure \ref{figure:ddm}).
 
 \begin{figure}[ht]
     \centering
@@ -162,16 +164,35 @@ Another prominent model of the decision-making process id the \acrfull{ddm}, als
     \label{figure:ddm}
 \end{figure}
 
-In its canonical form, the \acrshort{ddm} has four parameters. The starting point of evidence accumulation, denoted $z$, represents the initial bias favoring one of the two alternatives. In an unbiased setting, $z=0$. The decision boundaries are symmetrically described by a parameter denoted $a$, which implements the \acrlong{sat}: increasing $a$ results in fewer errors but also slower responses. The average amount of accumulated evidence per unit of time (i.e. the average speed of evidence accumulation) is called the \textit{drift rate} and denoted $v$. It is an index of task difficulty of subject ability. Lastly, non-decision time $T_{er}$ measures the time needed for peripheral processes such as stimulus encoding and motor response. athematically speaking, the \Acrshort{ddm} assumes that evidence accumulation is governed by the following equation:
+In its canonical form, the \acrshort{ddm} has four parameters. The starting point of evidence accumulation, denoted $z$, represents the a priori bias favoring one of the two alternatives. In an unbiased setting, $z=0$. The decision boundaries are symmetrically described by a parameter denoted $a$, which implements the \acrlong{sat}: increasing $a$ results in fewer errors but also slower responses. The average amount of accumulated evidence per unit of time (i.e. the average speed of evidence accumulation) is called the \textit{drift rate} and denoted $v$. It is an index of task difficulty of subject ability. Lastly, non-decision time $T_{er}$ measures the time needed for peripheral processes such as stimulus encoding and motor response. athematically speaking, the \Acrshort{ddm} assumes that evidence accumulation is governed by the following equation:
 
 $$dx = vdt + sW$$
 
 $x$ represents the accumulated evidence and $dt$ the time unit (when $dt = 0$, the integration process is continuous in time). $s$ is the standard deviation of the within-trial accumulation white noise $W$.
 
+The \acrlong{ddm} is being used by a growing body of literature to elucidate the cognitive processes of decision-making. From a behavioral standpoint, \Acrshort{ddm}-based studies showed that older adults had slower non-decision times and set wider boundaries, but their drift rates were not always lower than those of young adults. \Acrshort{ddm}-based analyses demonstrated that drift rate varied with IQ, but boundary separation and nondecision time did not. Sleep deprivation and alcohol consumption have been linked to a drift rate, but have either small or no effect on boundary separation and non-decision time. From a neuroscience standpoint, studies use the \acrshort{ddm} as inspiration to interpret neuron firing rates in monkeys as evidence accumulation until a threshold is reached \cite{GOLD200110}. Others correlate parameter estimates from \Acrshort{ddm} models to the blood-oxygen-level dependent signal obtained from fMRI experiments in perceptual decision-making. The initial model has been extended to account for specific behavioral patterns like the difference in \acrlong{rt} between correct and error responses \cite{ratcliffDiffusionDecisionModel2008}, or post-deciaional change of mind by the decision-maker \cite{resulajChangesMindDecisionmaking2009}.
+
+\subsection{Handling multiple choices}
+
+\subsubsection{\acrlong{msprt}}
+
+\subsubsection{\acrlong{lca}}
+
 \subsubsection{\acrlong{lba}}
 
-\subsection{Modeling a multi-alternatives decision}
+The \acrfull{lba} is a model of decision-making using one \acrlong{dv} per alternative \cite{brownSimplestCompleteModel2008}. Compared to diffusion-based models like the \acrshort{ddm} or the \acrshort{lca}, the \acrshort{lba} makes several simplificative assumptions. First of all, instead of being stochastic by adding some within-trial variability, evidence accumulation is linear. Secondly, all \acrshort{dv}s are independant and not subject to any decay or inhibition mechanism (Figure \ref{figure:lba}). It integrates two sources of inter-trial variability: the starting points for evidence accumulators are random values drawn from a uniform distribution, and the drift rates are drawn from normal distributions with specific means and a common standard deviation. The model takes its name from the fact that the future trajectory of each \acrshort{dv} is fully determined by its initial conditions, corresponding to the notion of ballistics in Newtonian mechanisms.
 
-\subsection{Modeling repeated binary decisions}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{brownSimplestCompleteModel2008_1.png}
+    \caption[The \acrlong{lba}]{Schematic illustration of the differences between the \acrshort{lca} (left). the ballistic accumulator (center) and the \acrshort{lba} (right). The first model uses within-trial stochastic evidence accumulation, decay and mutual inhibition between \Acrlong{dv}s. The second one omits stochastic mechanisms. The third one also drops decay and response competition. Adapted from \cite{brownSimplestCompleteModel2008}.}
+    \label{figure:lba}
+\end{figure}
 
-\subsection{Modeling repeated multi-alternatives decisions}
+Despite these simplifications, the \acrshort{lba} is able to account for the most important experimental results related to decision-making, including the \acrshort{rt} distribution shape, the \acrlong{sat} and the relative speed of correct vs. incorrect responses. \todo{Expliquer qqpart les vitesses relatives des décisions correctes vs. incorrectess}
+
+\subsubsection{\acrlong{alba}}
+
+\todo{Ajouter les modèles RD et ARD ?}
+
+\subsection{Integrating learning effects}
